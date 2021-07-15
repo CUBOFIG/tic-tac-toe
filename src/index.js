@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ProjectState from './contex/state';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ProjectState>
+      <App />
+    </ProjectState>
   </React.StrictMode>,
   document.getElementById('root')
 );

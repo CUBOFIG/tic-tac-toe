@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React, { useState, useRef, useContext } from 'react'
+import { Container } from 'reactstrap';
 import './App.css';
+import Confetti from "react-confetti";
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Game from './components/Game/game';
+import projectContext from './contex/context';
 
 function App() {
+
+
+  const { show, } = useContext(projectContext)
+
+  const { width, height } = useWindowSize();
+  const confettiRef = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container >
+      <div className="confetti-wrap" ref={confettiRef}>
+        <Game />
+        {show ?
+          < Confetti
+            recycle={show}
+            numberOfPieces={500}
+            width={width}
+            height={height}
+          /> : null}
+      </div>
+
+    </Container >
+
   );
 }
 
