@@ -20,6 +20,9 @@ const Board = props => {
         <Square value={props.squares[7]} action={() => props.action(7)} />
         <Square value={props.squares[8]} action={() => props.action(8)} />
       </div>
+      <div>
+
+      </div>
     </div>
   )
 }

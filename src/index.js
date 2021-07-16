@@ -7,11 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProjectState from './contex/state';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ProjectState>
-      <App />
-    </ProjectState>
-  </React.StrictMode>,
+  <ProjectState>
+    <App />
+  </ProjectState>,
   document.getElementById('root')
 );
 

@@ -7,7 +7,12 @@ import projectContext from '../../contex/context';
 
 const Game = () => {
 
-  const { show, changeShow } = useContext(projectContext)
+  const { show, changeShow, winnerSelect,
+    // xIsNext,
+    // history,
+    // jumpTo,
+    // handle
+  } = useContext(projectContext)
 
   const [state, dispatch] = useReducer(
     reducer, {
@@ -43,21 +48,23 @@ const Game = () => {
 
 
   useEffect(() => {
-    console.log(status)
-    if (status === 'Winner is X') {
-      changeShow(true)
-
-      setTimeout(() => { changeShow(false) }, 3000)
+    if (status === 'Winner is X' || status === 'Winner is O') {
+      changeShow("winner")
+      winnerSelect(status)
     }
+    if (status === 'Draw') {
+      changeShow("Draw")
+      winnerSelect(status)
+    }
+
+    //eslint-disable-next-line
   }, [status])
-
-
 
   const moves = (
     history.map((step, move) => {
       const desc = move ? `Go to #${move}` : 'Start the Game'
       return (
-        <li key={move}>
+        <li key={move} className="mt-1">
           <button onClick={() => jumpTo(move)}>
             {desc}
           </button>
@@ -69,17 +76,14 @@ const Game = () => {
   return (
     <div className="game">
       <Row>
-        <Col md="8">
+        <Col md="8" className="m-0 p-0">
           <div className="game-board align-items-center justify-content-center d-flex">
             <Board action={(e) => handleClick(e)} squares={current.squares}>
             </Board>
           </div>
         </Col>
         <Col md="4">
-          <div className="game-info">
-            <div>
-              {status}
-            </div>
+          <div className="game-info mt-2">
             <ul>
               {moves}
             </ul>

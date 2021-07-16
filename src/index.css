@@ -9,6 +9,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgb(28, 37, 88) !important;
+  margin: 0;
+  padding: 0;
 }
 
 .btn-new {
@@ -52,4 +54,42 @@ body {
 
 .board > div {
   display: flex;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: 25%;
+}
+
+.icon{
+  font-size: 3rem;
+  color: rgb(49, 68, 85);
+  transition: transform .7s ease-in-out;
+}
+
+.icon:hover{
+  transform: rotate(-360deg) !important;
+}
+
+.text-winner{
+  color: rgb(255, 251, 9);
+  text-transform: uppercase;
+}
+
+.my-modal .modal-content {
+  background-color: rgb(34, 40, 71) !important;
+}
+
+.name{
+  background-color: rgb(97, 233, 215) !important;
+  border: 0px solid  !important;
+}
+
+@media only screen and (max-width: 400px) {
+  .btn-new {
+    width: 4rem;
+    height: 3.5rem;
+    padding: 0rem;
+    font-size: 2.5rem;
+  }
 }

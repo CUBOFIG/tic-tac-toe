@@ -2,9 +2,14 @@ import React from 'react'
 
 const Square = ({ value, action }) => {
   return (
-    <button className="btn-new" onClick={action}>
-      {value}
-    </button>
+    <div className="d-flex">
+      <div className="align-items-center justify-content-center">
+        <button className="btn-new" onClick={action}>
+          {value}
+        </button>
+      </div>
+
+    </div>
   )
 }
 
