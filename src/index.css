@@ -50,6 +50,7 @@ body {
 .game-info {
   margin: 0.938rem;
   color: white;
+  height: 1.25rem;
 }
 
 .board > div {
@@ -57,7 +58,6 @@ body {
 }
 
 .modal-dialog {
-  position: absolute;
   top: 25%;
 }
 
@@ -83,6 +83,25 @@ body {
 .name{
   background-color: rgb(97, 233, 215) !important;
   border: 0px solid  !important;
+}
+
+.button-flag{
+  background-color: transparent !important;
+  border: none !important;
+  color: #cdf80b;
+}
+
+.btn-return{
+  background-color: rgb(173, 253, 44) !important;
+  color: #353f07 !important;
+  font-weight: 500 !important;
+  border: none !important;
+  /* margin-left: 1.5rem !important;
+  margin-right: 1.5rem !important; */
+}
+
+.case{
+  background-color: rgb(173, 253, 44) !important;
 }
 
 @media only screen and (max-width: 400px) {

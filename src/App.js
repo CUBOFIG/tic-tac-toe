@@ -4,13 +4,22 @@ import { Button, Modal, ModalBody } from 'reactstrap';
 import './App.css';
 import Confetti from "react-confetti";
 import useWindowSize from 'react-use/lib/useWindowSize'
-import Game from './components/Game/game';
 import projectContext from './contex/context';
 import FontAwesomeIcon from './shared/FontAwesomeIcon'
+import Gamt from './components/Gamt/Gamt';
+import ReactAudioPlayer from 'react-audio-player';
+import sound from './Sounds/winner.m4a'
 
 function App() {
 
-  const { show, changeShow, winner, confetti } = useContext(projectContext)
+  const {
+    show,
+    changeShow,
+    winner,
+    confetti,
+    jumpTo,
+    reset
+  } = useContext(projectContext)
 
   const { width, height } = useWindowSize();
 
@@ -22,12 +31,14 @@ function App() {
     } else {
       changeShow('Draw');
     }
+    jumpTo(0);
+    reset(0);
   }
 
   return (
     <Container >
       <div className="confetti-wrap" ref={confettiRef}>
-        <Game />
+        <Gamt />
         {confetti ?
           < Confetti
             recycle={show}
@@ -49,6 +60,12 @@ function App() {
               </div>
             </div>
           </ModalBody>
+          {winner === 'Draw'
+            ? null
+            : <ReactAudioPlayer
+              src={sound}
+              autoPlay
+            />}
         </Modal>
       </div>
 

@@ -1,4 +1,4 @@
-import { INIT_SHOW, WINNER_SELECT, INIT_DRAWN, MOVE, JUMP } from './types'
+import { INIT_SHOW, WINNER_SELECT, INIT_DRAWN, MOVE, JUMP, JUMP_ARROW, JUMP_RESET } from './types'
 
 const ProyectoReducer = (state, action) => {
   switch (action.type) {
@@ -29,6 +29,7 @@ const ProyectoReducer = (state, action) => {
           squares: action.payload.squares,
         }),
         xIsNext: !state.xIsNext,
+        count: action.payload.plus
       }
 
     case JUMP:
@@ -38,6 +39,19 @@ const ProyectoReducer = (state, action) => {
         history: state.history.slice(0, action.payload.step + 1),
       }
 
+    case JUMP_ARROW:
+      return {
+        ...state,
+        xIsNext: action.payload.step % 2 === 0,
+        history: state.history.slice(0, action.payload.step + 1),
+        count: action.payload.step
+      }
+
+    case JUMP_RESET:
+      return {
+        ...state,
+        count: action.payload.data
+      }
     default:
       return state;
   }

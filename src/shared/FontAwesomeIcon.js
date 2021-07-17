@@ -3,7 +3,8 @@ import * as FaIcons from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 library.add(
-  FaIcons.faUndoAlt
+  FaIcons.faUndoAlt,
+  FaIcons.faFlag
 )
 
 export default FontAwesomeIcon
